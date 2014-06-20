@@ -5,13 +5,13 @@
  Copyright SJ Hindmarch 2014
  Distributed under the GNU General Public License
 -->
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/tableLayout"
+<TableLayout android:id="@+id/tableLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FF8"
+    android:clipChildren="true"
     android:padding="5dp"
-    android:stretchColumns="1,2,3" >
+    android:stretchColumns="1,2,3" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TableRow
         android:id="@+id/tableRow0"
@@ -40,8 +40,8 @@
     </TableRow>
 
     <TableRow
-        android:id="@+id/tableRow1"
-        android:layout_width="fill_parent"
+        android:id="@+id/tableRow6"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
         <TextView
@@ -49,27 +49,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_gravity="center"
-            android:layout_weight="0"
-            android:text="10%" />
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/ten_percent" />
 
         <TextView
             android:id="@+id/fifteenTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0"
-            android:layout_column="2"
-            android:text="15%" />
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/fifteen_percent" />
 
         <TextView
             android:id="@+id/twentyTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0"
-            android:layout_column="3"
-            android:text="20%" />
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/twenty_percent" />
 
     </TableRow>
 
@@ -82,10 +80,10 @@
             android:id="@+id/tipTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0"
             android:gravity="right"
             android:paddingRight="5dp"
-            android:layout_weight="0"
-            android:text="Tip" />
+            android:text="@string/tip" />
 
         <EditText
             android:id="@+id/tip10EditText"
@@ -98,7 +96,7 @@
             android:gravity="center"
             android:longClickable="false"
             android:layout_weight="1"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <EditText
             android:id="@+id/tip15EditText"
@@ -140,7 +138,7 @@
             android:layout_weight="0"
             android:gravity="right"
             android:paddingRight="5dp"
-            android:text="Total" />
+            android:text="@string/total" />
 
         <EditText
             android:id="@+id/total10EditText"
@@ -197,7 +195,7 @@
             android:gravity="center_vertical|right"
             android:paddingBottom="5dp"
             android:paddingRight="5dp"
-            android:text="Custom" />
+            android:text="@string/custom" />
 
         <SeekBar
             android:id="@+id/customSeekBar"
@@ -220,7 +218,7 @@
             android:gravity="center_vertical"
             android:paddingBottom="5dp"
             android:paddingLeft="5dp"
-            android:text="18%" />
+            android:text="@string/eighteen_percent" />
 
     </TableRow>
 
@@ -236,7 +234,7 @@
             android:layout_weight="0"
             android:gravity="right"
             android:paddingRight="5dp"
-            android:text="Tip" />
+            android:text="@string/tip" />
 
         <EditText
             android:id="@+id/tipCustomEditText"
@@ -258,7 +256,7 @@
             android:layout_weight="1"
             android:gravity="right"
             android:paddingRight="5dp"
-            android:text="Total" />
+            android:text="@string/total" />
 
         <EditText
             android:id="@+id/totalCustomEditText"
