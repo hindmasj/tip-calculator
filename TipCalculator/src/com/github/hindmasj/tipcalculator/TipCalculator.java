@@ -48,16 +48,49 @@ public class TipCalculator extends Activity{
 		tipCustomEditText=(EditText)findViewById(R.id.tipCustomEditText);
 		totalCustomEditText=(EditText)findViewById(R.id.totalCustomEditText);
 		
-		customTipTextView=(TextView)findViewById(R.id.billEditText);
+		customTipTextView=(TextView)findViewById(R.id.customTipTextView);
 		
 		billEditText=(EditText)findViewById(R.id.billEditText);
 		billEditText.addTextChangedListener(billEditTextWatcher);
 		
 		SeekBar customSeekBar=(SeekBar)findViewById(R.id.customSeekBar);
-		customerSeekBar.setOnSeekBarChangeListener(customSeekBarListener);
+		customSeekBar.setOnSeekBarChangeListener(customSeekBarListener);
+	}
+	
+	@Override
+	protected void onSaveInstanceState(Bundle outState){
+		super.onSaveInstanceState(outState);
+		outState.putDouble(BILL_TOTAL, currentBillTotal);
+		outState.putInt(CUSTOM_PERCENT, currentCustomPercent);
+	}
+	
+	private void updateStandard(){
+		double tip=currentBillTotal*.1;
+		double total=currentBillTotal+tip;
+		tip10EditText.setText(String.format("%0.20f", tip));
+		total10EditText.setText(String.format("%0.20f", total));
+		
+		tip=currentBillTotal*.15;
+		total=currentBillTotal+tip;
+		tip15EditText.setText(String.format("%0.20f", tip));
+		total15EditText.setText(String.format("%0.20f", total));
+
+		tip=currentBillTotal*.2;
+		total=currentBillTotal+tip;
+		tip20EditText.setText(String.format("%0.20f", tip));
+		total20EditText.setText(String.format("%0.20f", total));
+	}
+	
+	private void updateCustom(){
+		customTipTextView.setText(currentCustomPercent+"%");
+		
+		double tip=currentBillTotal*currentCustomPercent*.01;
+		double total=currentBillTotal+tip;
+		tipCustomEditText.setText(String.format("%0.20f", tip));
+		totalCustomEditText.setText(String.format("%0.20f", total));		
 	}
 
-	private OnSeekBarChangeListener customSeekarBarListener=new OnSeekBarChangeListener(){
+	private OnSeekBarChangeListener customSeekBarListener=new OnSeekBarChangeListener(){
 		@Override
 		public void onProgressChanged(SeekBar seekBar,int Progress, boolean fromUser){
 			currentCustomPercent=seekBar.getProgress();
